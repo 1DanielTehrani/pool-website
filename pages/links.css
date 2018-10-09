@@ -1,0 +1,60 @@
+#link1 {
+  font-size: 17pt;
+}
+
+#config {
+  position: relative;
+  font-size: 12pt;
+  color : rgb(0, 0, 0);
+  border : solid 1px;
+  left : 20px;
+  font-style: 'MS Sans Serif';
+
+}
+
+#config_pre {
+  font-size: 15pt;
+  font-family: sans-serif;
+}
+
+#links {
+  margin : 1pt 10pt 10pt 10pt;
+}
+
+#usage {
+  margin : 1pt 10pt 10pt 10pt;
+}
+
+#ports {
+  margin : 1pt 10pt 10pt 10pt;
+}
+
+#fotter_title {
+  position:absolute;
+  right : 50px;
+  font-size : 25pt;
+  font-family: serif;
+  color :rgb(196, 94, 5);
+}
+
+#port_num {
+  font-family: serif;
+}
+
+.other {
+  position : relative;
+  background : linear-gradient(0deg, rgb(47, 54, 66), rgb(126, 141, 168));
+  font-family: sans-serif;
+  width : 100%;
+  height: 200px;
+  top : 50px;
+  font-size : 12pt;
+}
+
+.other img {
+  vertical-align: middle;
+}
+
+body {
+  font-family: sans-serif;
+}

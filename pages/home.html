@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html" charset="utf-8">
+  <meta name="Monero mining pool">
+  <link rel="stylesheet" href="./home.css" type="text/css">
+</head>
+<body>
+  <div id="why">
+    <font size="10">Why mine Monero?</font>
+    <br>
+    <hr width="380" align="left"></hr>
+    <font id="explain">After ASICs took over cryptocurrency mining, especially cryptocurrencies
+    using sha256 algorithm are heading to centralization.Cryptocurrencies were created
+    as a decentralized financial system, which no particular person or organization is
+    responsible for it. So this ASIC centralization should be fixed. Monero is a cryptocurrency which
+    is strongly against ASIC mining. For all GPU miners, using GPUs to mine cryptocurrencies are still
+    profitable (depends on electricity bill) and also can contribute to the decentralization of mining.
+    </font>
+    <br>
+    <br>
+    <hr width="90%" align="center">
+  </div>
+
+    <br>
+    <br>
+
+  <div id="about">
+    <font size="10">About</font><br>
+    <hr width="130px" align="left">
+    <font id="explain">
+    &nbsp;This is a mining pool specific for mining Monero. No registeration needed. Connect to out pool
+    with a miner, and start mining. We are just trying to contribute to the network by distributing hashpower,
+    for a more reliable and decentralized network. So the pool fee is set to 0%. Only your hashpower depends on how much
+    you earn.
+    </font><br>
+    <font id="explain">
+    &nbsp;You can use a third party mining software to connect to our pool. xmr-stack supports both gpu and cpu mining, so even if you
+    don't have a gpu in your machine, it is possible to share your hashpower.
+    </font>
+    <br>
+    <br>
+    <hr width="90%">
+  </div>
+
+    <br>
+
+  <div>
+    <font size="5" >&nbsp;&nbsp;pool address : </font><font id="pool_address" size="5" > </font>
+  </div>
+
+    <br>
+    <br>
+    <br>
+
+  <div class="downloads">
+    <font size="6">Downloads</font><br>
+    <hr width="500" align="left">
+
+
+    <font id="p1">For Nvidia GPU users&nbsp;&nbsp;&nbsp;</font>
+    <a href="https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1" target="_blank"><font id="a1">xmr-stack-nvidia&nbsp;</font></a>
+    <img src="https://eteknix-eteknixltd.netdna-ssl.com/wp-content/uploads/2016/04/nvidia-gtx-800x450.png" width="30" height="30" alt="sample"><br>
+    <hr width="500" align="left">
+
+    <font id="p1">For AMD GPU users&nbsp;&nbsp;&nbsp;</font>
+    <a href="https://github.com/fireice-uk/xmr-stak-amd/releases" target="_blank"><font  id="a1">xmr-stack-amd</font></a>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/AMD_Radeon_logo.svg/1213px-AMD_Radeon_logo.svg.png" width="30" height="30" alt="sample"><br>
+    <hr width="500" align="left">
+  </div>
+
+  <div class="icon">
+    <img width="200px" height="200px" src="https://pbs.twimg.com/profile_images/473825289630257152/PzHu2yli_400x400.png"></img>
+  </div>
+
+  <div class="stats">
+    <table id="table1">
+      <tr><td align="center"> <font id="table_cell" name="xmrbtc">1XMR = 0BTC</font></td></tr>
+      <tr><td align="center"> <font id="table_cell" name="xmrusd">1XMR = 0USD</font> </td></tr>
+      <tr><td align="center"> <font id="table_cell" name="xmreur">1XMR = 0EUR</font> </td></tr>
+    </table>
+
+    <table id="table1">
+      <tr>
+        <td align="center"><font id="table_cell">Network Hashrate</font></td>
+        <td align="center"><font id="table_cell">Pool Hashrate</font></td>
+      </tr>
+      <tr>
+        <td align="center"><font id="table_cell" name="hps1">Hps</font></td>
+        <td align="center"><font id="table_cell" name="hps2">Hps</font></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="other">
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Pool address</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font><font id="pool_address" size="3"></font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Contact</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;</font>
+    <img src="https://image.flaticon.com/icons/svg/281/281769.svg" width="25" height="25"></img>
+    <font>&nbsp;&nbsp;&nbsp;</font><font id="contact" size="3"></font>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+
+    <img src="Twitter_Logo_Blue.png" width="35" height="35"></img>
+    <font>@Bitcoin85586010</font>
+
+    <font id="fotter_title">Monero Miner</font>
+  </div>
+
+</body>
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+  $(document).ready(() => {
+    $.getJSON("../config.json", (data) => {
+      $("[id=pool_address]").text(data["pool_address"]);
+      $("[id=contact]").text(data["contact"]);
+    })
+
+    function update() {
+      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR", (data) => {
+          $("#table_cell[name=xmrbtc]").text("1XMR = " + data["BTC"] + "BTC")
+          $("#table_cell[name=xmrusd]").text("1XMR = " + data["USD"] + "USD")
+          $("#table_cell[name=xmreur]").text("1XMR = " + data["EUR"] + "EUR")
+        });
+
+      $.getJSON("https://moneroblocks.info/api/get_stats", (data) => {
+          $("#table_cell[name=hps1]").text(data["hashrate"] + "Hps");
+        });
+
+      $.ajax({
+        url : "http://127.0.0.1:8117/live_stats",
+        type : "post",
+        success : function (data) {
+          $("#table_cell[name=hps2]").text(data["pool"]["hashrate"] + "Hps");
+        },
+        error : function(err) {
+          console.error("api error");
+        }
+      });
+        setTimeout(update, 10000);
+    };
+
+    update();
+
+  })
+</script>
+<html>

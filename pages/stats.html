@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta charset="utf-8" content="text/html"></meta>
+  <link rel="stylesheet" href="./stats.css" type="text/css">
+  <title> </title>
+</head>
+<body>
+
+    <table id="stats_table" border="1">
+      <tr><td align="center">coin</td><td align="center" id="val">Monero7</td></tr>
+      <tr><td align="center">algorithm</td><td align="center" id="val">cryptonightv7</td></tr>
+      <tr><td align="center">pool fee</td><td align="center" id="val">0%</td></tr>
+      <tr><td align="center">pool address</td><td align="center" id="val"><font id="pool_address"></font></td></tr>
+      <tr><td align="center">miners</td><td align="center" name="miners" id="val"></td></tr>
+      <tr><td align="center">netwrok hashrate</td><td align="center" name="network_hashrate" id="val"></td></tr>
+      <tr><td align="center">pool hashrate</td><td align="center" name="pool_hashrate" id="val"></td></tr>
+      <tr><td align="center">1XMR</td><td align="center" name="xmrbtc" id="val"></td></tr>
+      <tr><td align="center">1BTC</td><td align="center" name="btcusd" id="val"></td></tr>
+      <tr><td align="center">1BCH</td><td align="center" name="bchusd" id="val"></td></tr>
+    </table>
+
+    <div class="other">
+      <br>
+      &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
+      <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
+      <br>
+      <br>
+      &nbsp;&nbsp;&nbsp;<u><font size="3">Pool address</font></u><br>
+      <font>&nbsp;&nbsp;&nbsp;&nbsp;</font><font id="pool_address" size="3"></font>
+      <br>
+      <br>
+      &nbsp;&nbsp;&nbsp;<u><font size="3">Contact</font></u><br>
+      <font>&nbsp;&nbsp;&nbsp;</font>
+      <img src="https://image.flaticon.com/icons/svg/281/281769.svg" width="25" height="25"></img>
+      <font>&nbsp;&nbsp;&nbsp;</font><font id="contact" size="3"></font>
+      <font>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+
+      <img src="Twitter_Logo_Blue.png" width="35" height="35"></img>
+      <font>@Bitcoin85586010</font>
+
+      <font id="fotter_title">Monero Miner</font>
+    </div>
+
+</body>
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+  $(document).ready(() => {
+    $.getJSON("../config.json", (data) => {
+      $("[id=pool_address]").text(data["pool_address"]);
+      $("[id=contact]").text(data["contact"]);
+    })
+
+    function update() {
+      $.ajax({
+        url : "http://127.0.0.1:8117/live_stats",
+        type : "post",
+        success : function (data) {
+          $("td[name=miners]").text(data["pool"]["miners"]);
+          $("td[name=pool_hashrate]").text(data["pool"]["hashrate"] + "Hps");
+        },
+        error : function(err) {
+          console.error("api error");
+        }
+      });
+
+      $.getJSON("https://moneroblocks.info/api/get_stats", (data) => {
+          $("td[name=network_hashrate]").text(data["hashrate"] + "Hps");
+        });
+
+      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD", (data) => {
+          $("td[name=xmrbtc]").text(data["BTC"] + "BTC" + "\t"  + data["USD"] + "USD")
+        })
+
+      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", (data) => {
+        $("td[name=btcusd]").text(data["USD"] + "USD")
+        })
+
+      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=USD", (data) => {
+        $("td[name=bchusd]").text(data["USD"] + "USD")
+      })
+
+      setTimeout(update, 20000);
+    }
+    update();
+  })
+
+</script>
+</html>

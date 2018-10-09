@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" content="text/html"></meta>
+  <link rel="stylesheet" href="./links.css" type="text/css">
+  <title> </title>
+</head>
+<body>
+  <br>
+  <br>
+
+  <div id="links">
+    <p><font size="7">Links (3)</font></p>
+    <font size="4">&nbsp;If you cannot download the zipfile of the miner because your browser claims that the file contains a malware
+    (I don't think it contains any malware and I don't know why it says that),
+    please scroll down and try to download an older version of it. It is compatible with the pool even the
+    miner isn't the newest.
+    </font>
+    <ul>
+      <li><a href="https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1</font></a></li><br>
+      <li><a href="https://github.com/fireice-uk/xmr-stak-amd/releases" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-amd/releases</font></a></li><br>
+      <li><a href="https://github.com/fireice-uk/xmr-stak-cpu/releases" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-cpu/releases</font></a></li><br>
+    </ul>
+    <hr width="90%" align="center">
+  </div>
+
+  <br>
+
+  <div id="usage">
+    <p><font size="7">Usage</font></p>
+    <font size="4">&nbsp;&nbsp;&nbsp;Choose a miner listed above. Download a zipfile of it and
+      edit the configuration file as shown. You can adjust the gpu usage by changing the amount of threads and blocks to use.
+    </font>
+    <br>
+    <br>
+    <div id="config">
+      <pre id="config_pre">
+//config.txt
+  "gpu_threads_conf" : [
+  { "index" : 0,
+    "threads" : 64,
+    "blocks"  : 8,  //optional
+    "bfactor" : 8, //optional
+    "bsleep" :  100, //optional
+    "affine_to_cpu" : false,
+  },
+    ],
+
+"use_tls" : false,
+"tls_secure_algo" : true,
+"tls_fingerprint" : "",
+
+
+"pool_address" : "miner095858.dip.jp:7777",
+"wallet_address" : "your wallet address", //ex.43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1
+"pool_password" : "x",
+
+
+"call_timeout" : 10,
+"retry_time" : 10,
+"giveup_limit" : 0,
+
+
+"verbose_level" : 3,
+
+
+"h_print_time" : 60,
+
+
+"output_file" : "",
+
+
+"httpd_port" : 0,
+
+"prefer_ipv4" : true,
+      </pre>
+    </div>
+  </div>
+
+    <br>
+    <br>
+
+  <div id="ports">
+    <p><font size="7">Ports</font></p>
+    <font size="4">&nbsp;To reward miners properly, amount equivalent to their hash power, the pool gives
+      different difficulities which depends on one's hash power. To do this, we have multiple
+      ports for different hardwares, from cpus to high end gpus. To get rewarded properly, we reccomend
+      you to connect to a port which matches your hardware.
+    </font>
+    <ul>
+      <li><font size="5">low end hardware &nbsp;  <font id="port_num">port 3333</font></font></li>
+      <li><font size="5">mid range hardware &nbsp;<font id="port_num">port 5555</font></font></li>
+      <li><font size="5">high end hardware &nbsp; <font id="port_num">port 7777</font></font></li>
+    </ul>
+  </div>
+
+  <div class="other">
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Pool address</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font><font id="pool_address" size="3"></font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Contact</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;</font>
+    <img src="https://image.flaticon.com/icons/svg/281/281769.svg" width="25" height="25"></img>
+    <font>&nbsp;&nbsp;&nbsp;</font><font id="contact" size="3"></font>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+
+    <img src="Twitter_Logo_Blue.png" width="35" height="35"></img>
+    <font>@Bitcoin85586010</font>
+
+    <font id="fotter_title">Monero Miner</font>
+  </div>
+</body>
+
+<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+  $(document).ready(() => {
+    $.getJSON("../config.json", (data) => {
+      $("[id=pool_address]").text(data["pool_address"]);
+      $("[id=contact]").text(data["contact"]);
+    });
+  });
+</script>
+</html>
