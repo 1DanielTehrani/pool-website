@@ -117,6 +117,7 @@
 </body>
 <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
+
   $(document).ready(() => {
     $.getJSON("../config.json", (data) => {
       $("[id=pool_address]").text(data["pool_address"]);
@@ -124,31 +125,24 @@
     })
 
     function update() {
-      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR", (data) => {
+      $.getJSON("../price.json", (data) => {
           $("#table_cell[name=xmrbtc]").text("1XMR = " + data["BTC"] + "BTC")
           $("#table_cell[name=xmrusd]").text("1XMR = " + data["USD"] + "USD")
-          $("#table_cell[name=xmreur]").text("1XMR = " + data["EUR"] + "EUR")
-        });
-
-      $.getJSON("https://moneroblocks.info/api/get_stats", (data) => {
-          $("#table_cell[name=hps1]").text(data["hashrate"] + "Hps");
-        });
-
-      $.ajax({
-        url : "http://127.0.0.1:8117/live_stats",
-        type : "post",
-        success : function (data) {
-          $("#table_cell[name=hps2]").text(data["pool"]["hashrate"] + "Hps");
-        },
-        error : function(err) {
-          console.error("api error");
-        }
+          $("#table_cell[name=xmreur]").text("1XMR = " + data["JPY"] + "JPY")
       });
-        setTimeout(update, 10000);
+
+      $.getJSON("../pool_stats.json", (data) => {
+          $("#table_cell[name=hps2]").text(data["pool"]["hashrate"] + "Hps");
+      });
+
+      $.getJSON("../network_stats.json", (data) => {
+          $("#table_cell[name=hps1]").text(data["hashrate"] + "Hps");
+      });
+
+      setTimeout(update, 10000);
     };
 
     update();
-
   })
 </script>
 <html>

@@ -16,8 +16,7 @@
       <tr><td align="center">netwrok hashrate</td><td align="center" name="network_hashrate" id="val"></td></tr>
       <tr><td align="center">pool hashrate</td><td align="center" name="pool_hashrate" id="val"></td></tr>
       <tr><td align="center">1XMR</td><td align="center" name="xmrbtc" id="val"></td></tr>
-      <tr><td align="center">1BTC</td><td align="center" name="btcusd" id="val"></td></tr>
-      <tr><td align="center">1BCH</td><td align="center" name="bchusd" id="val"></td></tr>
+
     </table>
 
     <div class="other">
@@ -52,38 +51,22 @@
     })
 
     function update() {
-      $.ajax({
-        url : "http://127.0.0.1:8117/live_stats",
-        type : "post",
-        success : function (data) {
-          $("td[name=miners]").text(data["pool"]["miners"]);
-          $("td[name=pool_hashrate]").text(data["pool"]["hashrate"] + "Hps");
-        },
-        error : function(err) {
-          console.error("api error");
-        }
-      });
+      $.getJSON("../pool_stats.json", (data) => {
+        $("td[name=miners]").text(data["pool"]["miners"]);
+        $("td[name=pool_hashrate]").text(data["pool"]["hashrate"] + "Hps");
+      })
 
-      $.getJSON("https://moneroblocks.info/api/get_stats", (data) => {
+
+      $.getJSON("../network_stats.json", (data) => {
           $("td[name=network_hashrate]").text(data["hashrate"] + "Hps");
         });
 
-      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD", (data) => {
+      $.getJSON("../price.json", (data) => {
           $("td[name=xmrbtc]").text(data["BTC"] + "BTC" + "\t"  + data["USD"] + "USD")
         })
-
-      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", (data) => {
-        $("td[name=btcusd]").text(data["USD"] + "USD")
-        })
-
-      $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=USD", (data) => {
-        $("td[name=bchusd]").text(data["USD"] + "USD")
-      })
-
-      setTimeout(update, 20000);
+      setTimeout(update, 10000);
     }
     update();
   })
-
 </script>
 </html>
