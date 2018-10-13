@@ -11,10 +11,7 @@
 
   <div id="links">
     <p><font size="7">Links (3)</font></p>
-    <font size="4">&nbsp;If you cannot download the zipfile of the miner because your browser claims that the file contains a malware
-    (I don't think it contains any malware and I don't know why it says that),
-    please scroll down and try to download an older version of it. It is compatible with the pool even the
-    miner isn't the newest.
+    <font size="4">&nbsp;Please download the latest version.
     </font>
     <ul>
       <li><a href="https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1</font></a></li><br>
@@ -28,51 +25,23 @@
 
   <div id="usage">
     <p><font size="7">Usage</font></p>
-    <font size="4">&nbsp;&nbsp;&nbsp;Choose a miner listed above. Download a zipfile of it and
-      edit the configuration file as shown. You can adjust the gpu usage by changing the amount of threads and blocks to use.
+    <font size="4">&nbsp;&nbsp;&nbsp;Choose a miner listed above. Download a zipfile which corresponds to your system
+      and edit the pools.txt as shown. You can adjust the gpu usage by changing the threads and blocks to use by editing
+      nvidia.txt or amd.txt. And by editing the cpu.txt you can adjust the cpu usage.
+        If your system claims that the software is a threat and reccomends not to execute it, just ignore it. It is totaly fine.
     </font>
     <br>
     <br>
     <div id="config">
       <pre id="config_pre">
-//config.txt
-  "gpu_threads_conf" : [
-  { "index" : 0,
-    "threads" : 64,
-    "blocks"  : 8,  //optional
-    "bfactor" : 8, //optional
-    "bsleep" :  100, //optional
-    "affine_to_cpu" : false,
-  },
-    ],
+//pools.txt
+"pool_list" :
+  [
+  {"pool_address" : "0monerominer.com:7777", "wallet_address" : "43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1", "rig_id" : "", "pool_password" : "x", "use_nicehash" : false, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 1 },
+  ],
 
-"use_tls" : false,
-"tls_secure_algo" : true,
-"tls_fingerprint" : "",
+"currency" : "cryptonight_v8",
 
-
-"pool_address" : "miner095858.dip.jp:7777",
-"wallet_address" : "your wallet address", //ex.43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1
-"pool_password" : "x",
-
-
-"call_timeout" : 10,
-"retry_time" : 10,
-"giveup_limit" : 0,
-
-
-"verbose_level" : 3,
-
-
-"h_print_time" : 60,
-
-
-"output_file" : "",
-
-
-"httpd_port" : 0,
-
-"prefer_ipv4" : true,
       </pre>
     </div>
   </div>
