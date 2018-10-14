@@ -43,10 +43,9 @@ function get_network_stats_async() {
 
 function get_block_hash_async() {
   var options = {
-    url : "http://127.0.0.1/json_rpc",
-    data : {"jsonrpc" : "2.0", "id" : 0, "method" : "get_block_count"},
-    headers : {"Content-Type" : "application/json"},
-    method : "POST"
+    url : "http://127.0.0.1:18081/json_rpc",
+    json : {"id" : 0, "method" : "get_last_block_header"},
+    method : "POST",
   }
 
   return new Promise((resolve, reject) => {
@@ -99,15 +98,43 @@ function update_network_stats_json() {
 
 function update_blocks() {
   get_block_hash_async()
-  .then((data) => {
+  .then((block_data) => {
+    var f_data = fs.readFileSync("block_hash.json");
+
+    if (f_data.length != 0) {
+      f_data_decode = JSON.parse(f_data);
+
+      if (f_data_decode["height"].length >= 10) {
+        f_data_decode["height"].pop();
+        f_data_decode["timestamp"].pop();
+        f_data_decode["hash"].pop();
+      }
+
+      if (f_data_decode["height"][0] != block_data["result"]["block_header"]["height"]) {
+        f_data_decode["height"].unshift(block_data["result"]["block_header"]["height"]);
+        f_data_decode["timestamp"].unshift(block_data["result"]["block_header"]["timestamp"]);
+        f_data_decode["hash"].unshift(block_data["result"]["block_header"]["hash"]);
+      }
+
+      var data = f_data_decode;
+
+    } else {
+      data = {
+        "height" : [block_data["result"]["block_header"]["height"]],
+        "timestamp" : [block_data["result"]["block_header"]["timestamp"]],
+        "hash" : [block_data["result"]["block_header"]["hash"]]
+      }
+    }
+
     fs.writeFile("block_hash.json", JSON.stringify(data), (err) => {
       if (err) {
         console.error(err);
-      } else {
+      } else if (f_data_decode["height"][0] == block_data["result"]["block_header"]["height"]) {
         console.log("updated block_hash.json");
       }
       setTimeout(update_blocks, 10000);
     })
+
   })
   .catch((err) => {
     console.error(err);
