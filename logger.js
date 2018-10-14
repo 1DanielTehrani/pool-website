@@ -70,7 +70,10 @@ function update_network_stats_json() {
       setTimeout(update_network_stats_json, 10000);
     })
   })
-
+  .catch((err) => {
+    console.error(err);
+    setTimeout(update_network_stats_json, 10000);
+  })
 }
 
 update_price_json();
