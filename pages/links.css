@@ -2,6 +2,16 @@
   font-size: 17pt;
 }
 
+#top_image {
+  float : right;
+  width : 10%;
+}
+
+#top_image img {
+  position : relative;
+  top : 50px
+}
+
 #config {
   position: relative;
   font-size: 12pt;
@@ -9,7 +19,7 @@
   border : solid 1px;
   left : 20px;
   font-style: 'MS Sans Serif';
-
+  width : 100%;
 }
 
 #config_pre {
@@ -17,11 +27,23 @@
   font-family: sans-serif;
 }
 
+#links_ex {
+  font-size : 15pt;
+  margin : 1pt 10pt 10pt 10pt;
+  width : 90%;
+}
+
 #links {
+  position : relative;
+  top : 30px;
+  font-size : 15pt;
   margin : 1pt 10pt 10pt 10pt;
 }
 
 #usage {
+  position : relative;
+  font-size : 15pt;
+  float: left;
   margin : 1pt 10pt 10pt 10pt;
 }
 

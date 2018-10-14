@@ -1,11 +1,10 @@
 #stats_table {
   position: relative;
   font-size: 15pt;
-  font-family : italic;
   border-collapse: collapse;
   width : 80%;
   height: 200px;
-  top : 60px;
+  top : 40px;
   background : rgb(47, 54, 66);
 }
 
@@ -20,9 +19,10 @@
 }
 
 #div_blocks {
+  margin : 1pt 10pt 10pt 10pt;
   position: relative;
-  top : 60px;
-  font-size: 13pt;
+  top : 80px;
+  font-size: 15pt;
 }
 
 #blocks {
