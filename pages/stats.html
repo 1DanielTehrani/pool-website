@@ -6,7 +6,7 @@
   <title> </title>
 </head>
 <body>
-
+  <div>
     <table id="stats_table" border="1">
       <tr><td align="center">coin</td><td align="center" id="val">Monero</td></tr>
       <tr><td align="center">algorithm</td><td align="center" id="val">cryptonightv8</td></tr>
@@ -16,30 +16,46 @@
       <tr><td align="center">netwrok hashrate</td><td align="center" name="network_hashrate" id="val"></td></tr>
       <tr><td align="center">pool hashrate</td><td align="center" name="pool_hashrate" id="val"></td></tr>
       <tr><td align="center">1XMR</td><td align="center" name="xmrbtc" id="val"></td></tr>
-
     </table>
+  </div>
 
-    <div class="other">
-      <br>
-      &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
-      <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
-      <br>
-      <br>
-      &nbsp;&nbsp;&nbsp;<u><font size="3">Pool address</font></u><br>
-      <font>&nbsp;&nbsp;&nbsp;&nbsp;</font><font id="pool_address" size="3"></font>
-      <br>
-      <br>
-      &nbsp;&nbsp;&nbsp;<u><font size="3">Contact</font></u><br>
-      <font>&nbsp;&nbsp;&nbsp;</font>
-      <img src="https://image.flaticon.com/icons/svg/281/281769.svg" width="25" height="25"></img>
-      <font>&nbsp;&nbsp;&nbsp;</font><font id="contact" size="3"></font>
-      <font>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+  <div id="div_blocks" align="center">
+    <p align="center"><font size="5">blocks</font></p>
+    <table id="blocks" align="center">
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+    </table>
+  </div>
 
-      <img src="Twitter_Logo_Blue.png" width="35" height="35"></img>
-      <font>@Bitcoin85586010</font>
+  <div class="other">
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Pool address</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font><font id="pool_address" size="3"></font>
+    <br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<u><font size="3">Contact</font></u><br>
+    <font>&nbsp;&nbsp;&nbsp;</font>
+    <img src="https://image.flaticon.com/icons/svg/281/281769.svg" width="25" height="25"></img>
+    <font>&nbsp;&nbsp;&nbsp;</font><font id="contact" size="3"></font>
+    <font>&nbsp;&nbsp;&nbsp;&nbsp;</font>
 
-      <font id="fotter_title">Monero Miner</font>
-    </div>
+    <img src="Twitter_Logo_Blue.png" width="35" height="35"></img>
+    <font>@Bitcoin85586010</font>
+
+    <font id="fotter_title">Monero Miner</font>
+  </div>
 
 </body>
 <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -65,6 +81,7 @@
           $("td[name=xmrbtc]").text(data["BTC"] + "BTC" + "\t"  + data["USD"] + "USD")
         })
       setTimeout(update, 10000);
+
     }
     update();
   })
