@@ -6,10 +6,8 @@
   <title> </title>
 </head>
 <body>
-
-  <p align="center"><font size="5">Stats</font></p>
   <div>
-    <table id="stats_table" border="1" cellpadding="10">
+    <table id="stats_table" border="1">
       <tr><td align="center">coin</td><td align="center" id="val">Monero</td></tr>
       <tr><td align="center">algorithm</td><td align="center" id="val">cryptonightv8</td></tr>
       <tr><td align="center">pool fee</td><td align="center" id="val">0%</td></tr>
@@ -23,18 +21,17 @@
 
   <div id="div_blocks" align="center">
     <p align="center"><font size="5">blocks</font></p>
-    <table id="blocks" align="center" cellpadding="10">
-      <tr><td>height</td><td>timstmap</td><td>block hash</td></tr>
-      <tr><td name="height0"></td><td name="timestamp0"></td><td name="hash0"></td></tr>
-      <tr><td name="height1"></td><td name="timestamp1"></td><td name="hash1"></td></tr>
-      <tr><td name="height2"></td><td name="timestamp2"></td><td name="hash2"></td></tr>
-      <tr><td name="height3"></td><td name="timestamp3"></td><td name="hash3"></td></tr>
-      <tr><td name="height4"></td><td name="timestamp4"></td><td name="hash4"></td></tr>
-      <tr><td name="height5"></td><td name="timestamp5"></td><td name="hash5"></td></tr>
-      <tr><td name="height6"></td><td name="timestamp6"></td><td name="hash6"></td></tr>
-      <tr><td name="height7"></td><td name="timestamp7"></td><td name="hash7"></td></tr>
-      <tr><td name="height8"></td><td name="timestamp8"></td><td name="hash8"></td></tr>
-      <tr><td name="height9"></td><td name="timestamp9"></td><td name="hash9"></td></tr>
+    <table id="blocks" align="center">
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
+      <tr><td name="height"></td><td name="timestamp"></td><td name="hash"></td></tr>
     </table>
   </div>
 
@@ -83,16 +80,8 @@
       $.getJSON("../price.json", (data) => {
           $("td[name=xmrbtc]").text(data["BTC"] + "BTC" + "\t"  + data["USD"] + "USD")
         })
-
-      $.getJSON("../block_hash.json", (data) => {
-        for (var i = 0; i < 10; i++) {
-          $("td[name=height"+ i + "]").text(data["height"][i]);
-          $("td[name=timestamp"+ i + "]").text(data["timestamp"][i]);
-          $("td[name=hash"+ i + "]").text(data["hash"][i]);
-        }
-      })
-
       setTimeout(update, 10000);
+
     }
     update();
   })

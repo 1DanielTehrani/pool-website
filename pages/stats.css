@@ -5,7 +5,7 @@
   border-collapse: collapse;
   width : 80%;
   height: 200px;
-  top : 0px;
+  top : 60px;
   background : rgb(47, 54, 66);
 }
 
@@ -22,7 +22,7 @@
 #div_blocks {
   position: relative;
   top : 60px;
-  font-size : auto;
+  font-size: 13pt;
 }
 
 #blocks {
@@ -30,14 +30,12 @@
   background : rgb(47, 54, 66);
   border-collapse: collapse;
   color: rgb(196, 94, 5);
-
 }
 
 #blocks td {
   text-align : center;
   border : solid 2px;
   border-color : rgb(0, 0, 0);
-
 }
 
 #donation {
