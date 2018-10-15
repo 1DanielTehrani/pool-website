@@ -129,7 +129,7 @@ function update_blocks() {
     fs.writeFile("block_hash.json", JSON.stringify(data), (err) => {
       if (err) {
         console.error(err);
-      } else if (f_data_decode["height"][0] == block_data["result"]["block_header"]["height"]) {
+      } else if (data["height"][0] == block_data["result"]["block_header"]["height"]) {
         console.log("updated block_hash.json");
       }
       setTimeout(update_blocks, 10000);
