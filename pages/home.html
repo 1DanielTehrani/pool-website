@@ -17,16 +17,11 @@
     is strongly against ASIC mining. For all GPU miners, using GPUs to mine cryptocurrencies are still
     profitable (depends on electricity bill) and also can contribute to the decentralization of mining.
     </font>
-    <br>
-    <br>
-    <hr width="90%" align="center">
   </div>
 
-    <br>
-    <br>
-    <div class="icon">
-      <img width="220px" height="220px" src="https://pbs.twimg.com/profile_images/473825289630257152/PzHu2yli_400x400.png"></img>
-    </div>
+  <div id="icon">
+    <img width="180px" height="180px" src="https://pbs.twimg.com/profile_images/473825289630257152/PzHu2yli_400x400.png"></img>
+  </div>
 
   <div id="about">
     <font size="10">About</font><br>
@@ -41,60 +36,28 @@
     &nbsp;You can use a third party mining software to connect to our pool. xmr-stack supports both gpu and cpu mining, so even if you
     don't have a gpu in your machine, it is possible to share your hashpower.
     </font>
-    <br>
-    <br>
-    <hr width="90%">
   </div>
 
-    <br>
+  <div class="stats">
+    <table id="stats-table">
+      <tr><td align="center"> <font id="stats-table-cell" name="xmrbtc">1XMR = 0BTC</font></td></tr>
+      <tr><td align="center"> <font id="stats-table-cell" name="xmrusd">1XMR = 0USD</font> </td></tr>
+      <tr><td align="center"> <font id="stats-table-cell" name="xmreur">1XMR = 0EUR</font> </td></tr>
+    </table>
 
-
-    <br>
-    <br>
-    <br>
-
-      <div class="stats">
-        <table id="table1">
-          <tr><td align="center"> <font id="table_cell" name="xmrbtc">1XMR = 0BTC</font></td></tr>
-          <tr><td align="center"> <font id="table_cell" name="xmrusd">1XMR = 0USD</font> </td></tr>
-          <tr><td align="center"> <font id="table_cell" name="xmreur">1XMR = 0EUR</font> </td></tr>
-        </table>
-
-        <table id="table1">
-          <tr>
-            <td align="center"><font id="table_cell">Network Hashrate</font></td>
-            <td align="center"><font id="table_cell">Pool Hashrate</font></td>
-          </tr>
-          <tr>
-            <td align="center"><font id="table_cell" name="hps1">Hps</font></td>
-            <td align="center"><font id="table_cell" name="hps2">Hps</font></td>
-          </tr>
-        </table>
-      </div>
-
-
-  <div class="downloads">
-    <font size="6">Download miners</font><br>
-    <hr width="500" align="left">
-
-    <font id="p1">For Nvidia GPU miners&nbsp;&nbsp;&nbsp;</font>
-    <a href="https://github.com/fireice-uk/xmr-stak-nvidia/releases/tag/v1.0.0-1.3.1" target="_blank"><font id="a1">xmr-stack-nvidia&nbsp;</font></a>
-    <img src="https://eteknix-eteknixltd.netdna-ssl.com/wp-content/uploads/2016/04/nvidia-gtx-800x450.png" width="30" height="30" alt="sample"><br>
-    <hr width="500" align="left">
-
-    <font id="p1">For AMD GPU miners&nbsp;&nbsp;&nbsp;</font>
-    <a href="https://github.com/fireice-uk/xmr-stak-amd/releases" target="_blank"><font  id="a1">xmr-stack-amd</font></a>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/13/AMD_Radeon_logo.svg/1213px-AMD_Radeon_logo.svg.png" width="30" height="30" alt="sample"><br>
-    <hr width="500" align="left">
-
-    <font id="p1">For CPU miners&nbsp;&nbsp;&nbsp;</font>
-    <a href="https://github.com/fireice-uk/xmr-stak-cpu/releases" target="_blank"><font  id="a1">xmr-stack-cpu</font></a>
-    <hr width="500" align="left">
+    <table id="stats-table">
+      <tr>
+        <td align="center"><font id="stats-table-cell">Network Hashrate</font></td>
+        <td align="center"><font id="stats-table-cell">Pool Hashrate</font></td>
+      </tr>
+      <tr>
+        <td align="center"><font id="stats-table-cell" name="network-hps">Hps</font></td>
+        <td align="center"><font id="stats-table-cell" name="pool-hps">Hps</font></td>
+      </tr>
+    </table>
   </div>
 
-
-
-  <div class="other">
+  <div id="footer">
     <br>
     &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
     <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
@@ -128,20 +91,22 @@
 
     function update() {
       $.getJSON("../price.json", (data) => {
-          $("#table_cell[name=xmrbtc]").text("1XMR = " + data["BTC"] + "BTC")
-          $("#table_cell[name=xmrusd]").text("1XMR = " + data["USD"] + "USD")
-          $("#table_cell[name=xmreur]").text("1XMR = " + data["JPY"] + "JPY")
+          $("#stats-table-cell[name=xmrbtc]").text("1XMR = " + data["BTC"] + "BTC")
+          $("#stats-table-cell[name=xmrusd]").text("1XMR = " + data["USD"] + "USD")
+          $("#stats-table-cell[name=xmreur]").text("1XMR = " + data["JPY"] + "JPY")
+      });
+
+
+      $.getJSON("../network_stats.json", (data) => {
+          $("#stats-table-cell[name=network-hps]").text(data["hashrate"] + "Hps");
       });
 
       $.getJSON("../pool_stats.json", (data) => {
-          $("#table_cell[name=hps2]").text(data["pool"]["hashrate"] + "Hps");
-      });
-
-      $.getJSON("../network_stats.json", (data) => {
-          $("#table_cell[name=hps1]").text(data["hashrate"] + "Hps");
+          $("#stats-table-cell[name=pool-hps]").text(data["pool"]["hashrate"] + "Hps");
       });
 
       setTimeout(update, 10000);
+
     };
 
     update();

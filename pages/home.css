@@ -1,29 +1,28 @@
-#p1 {
-  position: relative;
-  font-size:  20pt;
-}
-
 #why {
-  float:left;
-  margin : 30pt 10pt 10pt 10pt;
+  position : relative;
+  float : left;
   width : 70%;
+  border : solid 1px;
+  margin : 30pt 10pt 30pt 10pt;
+  padding: 10px 30px 30px 30px;
+  border-radius : 10px;
 }
 
-.icon {
+#icon {
   position : relative;
-  top : 40px;
-  float:right;
-  width : 20%
+  padding : 10px 0px 0px 0px;
+  margin : 40px 0px 0px 0px;
+  float : right;
+  width : 20%;
 }
 
 #about {
   float:right;
-  margin : 1pt 10pt 10pt 10pt;
-}
-
-#a1 {
-  position : relative;
-  font-size: 20pt;
+  margin : 10px 10px 70px 10px;
+  padding: 10px 30px 30px 30px;
+  border : solid 1px;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
 }
 
 #explain {
@@ -31,13 +30,13 @@
   font-family: sans-serif;
 }
 
-#table1 {
+#stats-table {
   background-color : rgb(47, 54, 66);
   width : 100%;
   align : center;
 }
 
-#table_cell {
+#stats-table-cell {
   font-size : 25pt;
   color : rgb(224, 108, 2);
   align : center;
@@ -51,24 +50,7 @@
   color :rgb(196, 94, 5);
 }
 
-.downloads {
-  position: relative;
-  top : 50px;
-  margin : 1pt 10pt 10pt 10pt;
-  width : 75%;
-  font-family: sans-serif;
-}
-
-.downloads img {
-  vertical-align : top;
-}
-
-.stats {
-  position: relative;
-  top: 10px;
-}
-
-.other {
+#footer {
   position : relative;
   background : linear-gradient(0deg, rgb(47, 54, 66), rgb(126, 141, 168));
   font-family: sans-serif;
@@ -77,7 +59,7 @@
   font-size : 12pt;
 }
 
-.other img {
+#footer img {
   vertical-align: middle;
 }
 

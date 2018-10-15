@@ -3,85 +3,177 @@
 <head>
   <meta charset="utf-8" content="text/html"></meta>
   <link rel="stylesheet" href="./links.css" type="text/css">
-  <title> </title>
 </head>
 <body>
-  <div id="top_image">
-    <img width="120px" height="120px" src="https://pbs.twimg.com/profile_images/473825289630257152/PzHu2yli_400x400.png"></img>
-  </div>
-
-  <br>
-  <br>
-  <div id="links_ex">
-    <font size="7">Links</font><br><br>
-    <font>&nbsp;Please download the latest version of the miner, older ones might not be compatible with the Monero network.
+  <div id="get-your-miner">
+    <font size="7">Get your miner</font><br>
+    <hr width="320px" align="left">
+    <font id="explain">&nbsp;We support third party miners, such as xmr-stack and xmr-rig. Please download the latest version of the miner, older ones might not be compatible with the Monero network.
       You can download a Zipfile for Windows(x64), source code for Linux.
     </font>
-  </div>
 
-  <div id="links">
-    <hr width="90%" align="center">
-    <p align="center"><a href="https://github.com/fireice-uk/xmr-stak-nvidia/releases" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-nvidia/releases</font></a></p>
-    <p align="center"><a href="https://github.com/fireice-uk/xmr-stak-amd/releases" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-amd/releases</font></a></p>
-    <p align="center"><a href="https://github.com/fireice-uk/xmr-stak-cpu/releases" target="_blank"><font id="link1">https://github.com/fireice-uk/xmr-stak-cpu/releases</font></a></p>
-    <p align="center"><a href="https://github.com/xmrig/xmrig" target="_blank"><font id="link1">https://github.com/xmrig/xmrig</font></a></p>
-    <hr width="90%" align="center">
+    <div id="top-image">
+      <div id="img-monero"><img width="120px" height="120px" src="https://pbs.twimg.com/profile_images/473825289630257152/PzHu2yli_400x400.png"></img></div>
+      <div id="img-xmrig" ><img width="120px" height="120px" src="../images/xmrig.png"></img></div>
+    </div>
+
   </div>
 
 
-  <br>
+
+
+  <div id="ports">
+    <font size="7">Ports</font><br>
+    <hr width="110px" align="left">
+    <font id="explain">&nbsp;To reward miners properly, amount equivalent to their hash power, the pool gives
+          different difficulities which depends on one's hash power. To do this, we have multiple
+          ports for different hardwares, from cpus to high end gpus. To get rewarded properly, we reccomend
+          you to connect to a port which matches your hardware.
+    </font>
+    <ul>
+      <li><font id="explain">low end hardware &nbsp;  <font id="port_num">port 3333</font></font></li>
+      <li><font id="explain">mid range hardware &nbsp;<font id="port_num">port 5555</font></font></li>
+      <li><font id="explain">high end hardware &nbsp; <font id="port_num">port 7777</font></font></li>
+    </ul>
+  </div>
 
   <div id="usage">
-    <p><font size="7">Usage</font></p>
-    <font>&nbsp;&nbsp;&nbsp;Choose a miner listed above. Download a zipfile which corresponds to your system
-      and edit the pools.txt as shown. You can adjust the gpu usage by changing the threads and blocks to use by editing
-      nvidia.txt or amd.txt. And by editing the cpu.txt you can adjust the cpu usage.
-        If your system claims that the software is a threat and reccomends not to execute it, just ignore it. It is totaly fine.
-    </font>
-    <br>
-    <br>
-    <div id="config">
-      <pre id="config_pre">
+
+    <div id="xmr-stack">
+      <p align="center"><font size="6">xmr-stack</font></p>
+
+      <font id="explain">&nbsp;&nbsp;&nbsp;Download a miner which corresponds to your system
+        and edit the pools.txt as shown. You can adjust the gpu usage by changing the threads and blocks to use by editing
+        nvidia.txt or amd.txt. And by editing the cpu.txt you can adjust the cpu usage.
+          If your system claims that the software is a threat and reccomends not to execute it, just ignore it. It is totaly fine.
+          &nbsp;Don't forget to change "your wallet address" to your wallet address.
+        </font>
+
+        <div id="config">
+          <pre id="config_pre">
 //pools.txt
 "pool_list" :
   [
-  {"pool_address" : "0monerominer.com:7777", "wallet_address" : "your wallet address",
-                    "rig_id" : "",
-                    "pool_password" : "x",
-                    "use_nicehash" : false,
-                    "use_tls" : false,
-                    "tls_fingerprint" : "",
-                    "pool_weight" : 1
+  { "pool_address" : "0monerominer.com:7777",
+    "wallet_address" : "your wallet address",
+    "rig_id" : "",
+    "pool_password" : "x",
+    "use_nicehash" : false,
+    "use_tls" : false,
+    "tls_fingerprint" : "",
+    "pool_weight" : 1
   },
   ],
 
 "currency" : "cryptonight_v8",
-
-      </pre>
+        </pre>
+      </div>
     </div>
-    <br>
-  <hr width="90%" align="center">
+
+    <div id="xmrig">
+      <p align="center"><font size="6">xmrig</font></p>
+
+      <font id="explain">&nbsp;&nbsp;&nbsp;Download a miner which corresponds to your system
+        and edit the config.json as shown.
+          If your system claims that the software is a threat and reccomends not to execute it, just ignore it. It is totaly fine.
+          &nbsp;Don't forget to change "your wallet address" to your wallet address.
+      </font>
+
+      <div id="config">
+        <pre id="config_pre">
+//config.json
+{
+    "algo": "cryptonight",
+    "api": {
+        "port": 0,
+        "access-token": null,
+        "id": null,
+        "worker-id": null,
+        "ipv6": false,
+        "restricted": true
+    },
+    "asm": true,
+    "autosave": true,
+    "av": 0,
+    "background": false,
+    "colors": true,
+    "cpu-affinity": null,
+    "cpu-priority": null,
+    "donate-level": 5,
+    "huge-pages": true,
+    "hw-aes": null,
+    "log-file": null,
+    "max-cpu-usage": 75,
+    "pools": [
+        {
+            "url": "0monerominer.com:7777",
+            "user": "your wallet address",
+            "pass": "x",
+            "rig-id": null,
+            "nicehash": false,
+            "keepalive": false,
+            "variant": 0,
+            "tls": false,
+            "tls-fingerprint": null
+        }
+    ],
+    "print-time": 60,
+    "retries": 5,
+    "retry-pause": 5,
+    "safe": false,
+    "threads": [
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        },
+        {
+            "low_power_mode": 1,
+            "affine_to_cpu": false,
+            "asm": true
+        }
+    ],
+    "user-agent": null,
+    "watch": false
+}
+
+        </pre>
+      </div>
+    </div>
+
   </div>
 
-    <br>
-    <br>
-
-
-  <div id="ports">
-    <p><font size="7">Ports</font></p>
-    <font size="4">&nbsp;To reward miners properly, amount equivalent to their hash power, the pool gives
-      different difficulities which depends on one's hash power. To do this, we have multiple
-      ports for different hardwares, from cpus to high end gpus. To get rewarded properly, we reccomend
-      you to connect to a port which matches your hardware.
-    </font>
-    <ul>
-      <li><font size="5">low end hardware &nbsp;  <font id="port_num">port 3333</font></font></li>
-      <li><font size="5">mid range hardware &nbsp;<font id="port_num">port 5555</font></font></li>
-      <li><font size="5">high end hardware &nbsp; <font id="port_num">port 7777</font></font></li>
-    </ul>
-  </div>
-
-  <div class="other">
+  <div id="footer">
     <br>
     &nbsp;&nbsp;&nbsp;<u><font size="3">Donation XMR</font></u><br>
     <font>&nbsp;&nbsp;&nbsp;43VeqbfqScY5qk6x14VvUNZLiMkpxpdKU7YAyz2ukuoPAfNL74aUpa5TKDhPV37VzdeJWr6wjnP4bbusYp5gQYE9Ca6ryy1</font>
@@ -102,6 +194,7 @@
 
     <font id="fotter_title">Monero Miner</font>
   </div>
+
 </body>
 
 <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

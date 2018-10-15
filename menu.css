@@ -7,6 +7,23 @@
   color : rgb(219, 122, 15)
 }
 
+#links {
+  float : left;
+  width : 80%;
+}
+
+#links #links-table td{
+  padding: 25px 25px 25px 25px;
+}
+
+#site_title {
+  position : absolute;
+  color : rgb(196, 94, 5);
+  font-size : 30pt;
+  top : 30px;
+  right : 100px;
+}
+
 body {
   background :  linear-gradient(0deg, rgb(47, 54, 66), rgb(126, 141, 168));
   overflow : hidden;
@@ -14,22 +31,4 @@ body {
 
 a {
   text-decoration : none;
-}
-
-#miningpool {
-  font-size : 25pt;
-  color :rgb(196, 94, 5)
-}
-
-div.links {
-  float : left;
-  width : 80%;
-}
-
-div.site_title {
-  position : absolute;
-  color : rgb(196, 94, 5);
-  font-size : 30pt;
-  top : 30px;
-  right : 100px;
 }
