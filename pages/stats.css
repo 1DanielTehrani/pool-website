@@ -1,15 +1,14 @@
-#stats_table {
+#stats-table {
   position: relative;
   font-size: 15pt;
-  font-family : italic;
   border-collapse: collapse;
   width : 80%;
   height: 200px;
-  top : 60px;
+  top : 40px;
   background : rgb(47, 54, 66);
 }
 
-#stats_table td{
+#stats-table td{
   border : solid 2px;
   color: rgb(196, 94, 5);
   border-color : rgb(0, 0, 0);
@@ -19,10 +18,11 @@
   font-style: italic;
 }
 
-#div_blocks {
+#div-blocks {
+  margin : 1pt 10pt 10pt 10pt;
   position: relative;
-  top : 60px;
-  font-size: 13pt;
+  top : 80px;
+  font-size: 15pt;
 }
 
 #blocks {
@@ -44,15 +44,15 @@
   color : rgb(0, 0 ,0)
 }
 
-#fotter_title {
-  position:absolute;
+#fotter-title {
+  position : absolute;
   right : 50px;
   font-size : 25pt;
-  font-family: serif;
-  color :rgb(196, 94, 5);
+  font-family : serif;
+  color : rgb(196, 94, 5);
 }
 
-.other {
+#footer {
   position : relative;
   background : linear-gradient(0deg, rgb(47, 54, 66), rgb(126, 141, 168));
   font-family: sans-serif;
@@ -62,7 +62,7 @@
   font-size : 12pt;
 }
 
-.other img {
+#footer  img {
   vertical-align: middle;
 }
 

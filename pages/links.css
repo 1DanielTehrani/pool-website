@@ -1,5 +1,66 @@
-#link1 {
-  font-size: 17pt;
+#top-image {
+  position : relative;
+  padding : 10px 10px 30px 10px;
+  align : center;
+  width : 40%;
+  overflow: hidden;
+  top : 10px;
+}
+
+#top-image #img-monero{
+  position : relative;
+  float : left;
+}
+
+#top-image #img-xmrig{
+  position : relative;
+  float : right
+}
+
+#explain {
+  font-size : 15pt;
+  font-family: sans-serif;
+}
+
+#get-your-miner {
+  font-size : 15pt;
+  margin : 20px 20px 20px 20px;
+  border : solid 1px;
+  border-radius : 10px;
+  padding : 10px 10px 10px 10px;
+}
+
+#ports {
+  position : relative;
+  border : solid 1px;
+  border-radius : 10px;
+  padding : 10px 10px 10px 10px;
+  margin : 10px 20px 20px 20px;
+}
+
+#usage {
+  position : relative;
+  font-size : 15pt;
+  float: left;
+  margin : 10px 20px 20px 20px;
+}
+
+#usage #xmr-stack {
+  position : relative;
+  border : solid 1px;
+  border-radius : 10px;
+  padding : 10px 10px 40px 10px;
+  margin : 10px 10px 10px 10px;
+  overflow: hidden;
+}
+
+#usage #xmrig {
+  position : relative;
+  border : solid 1px;
+  border-radius : 10px;
+  margin : 20px 10px 10px 10px;
+  padding : 10px 10px 40px 10px;
+  overflow: hidden;
 }
 
 #config {
@@ -7,54 +68,31 @@
   font-size: 12pt;
   color : rgb(0, 0, 0);
   border : solid 1px;
-  left : 20px;
   font-style: 'MS Sans Serif';
-
+  width : 90%;
+  top : 20px;
 }
 
-#config_pre {
+#config #config_pre{
   font-size: 15pt;
   font-family: sans-serif;
 }
 
-#links {
-  margin : 1pt 10pt 10pt 10pt;
-}
-
-#usage {
-  margin : 1pt 10pt 10pt 10pt;
-}
-
-#ports {
-  margin : 1pt 10pt 10pt 10pt;
-}
-
-#fotter_title {
-  position:absolute;
-  right : 50px;
-  font-size : 25pt;
-  font-family: serif;
-  color :rgb(196, 94, 5);
-}
-
-#port_num {
-  font-family: serif;
-}
-
-.other {
+#footer {
   position : relative;
   background : linear-gradient(0deg, rgb(47, 54, 66), rgb(126, 141, 168));
   font-family: sans-serif;
   width : 100%;
-  height: 200px;
-  top : 50px;
+  height : 200px;
   font-size : 12pt;
+  overflow: hidden;
 }
 
-.other img {
+#fotter img {
   vertical-align: middle;
 }
 
-body {
-  font-family: sans-serif;
+div {
+  margin-left: auto;
+  margin-right: auto;
 }
